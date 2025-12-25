@@ -37,6 +37,12 @@
 		<a href="/translations" class="text-sm text-gray-500 hover:text-gray-700">← Back to translations</a>
 		<div class="flex gap-2">
 			<a
+				href="/translations/new"
+				class="rounded-md bg-blue-600 px-3 py-1.5 text-sm text-white hover:bg-blue-700"
+			>
+				+ New
+			</a>
+			<a
 				href="/translations/{data.translation.id}/edit"
 				class="rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
 			>

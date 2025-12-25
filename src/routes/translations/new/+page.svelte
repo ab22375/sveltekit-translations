@@ -36,9 +36,18 @@
 		<a href="/translations" class="text-sm text-gray-500 hover:text-gray-700">← Back to translations</a>
 	</div>
 
-	<h1 class="text-2xl font-bold text-gray-900">New Translation</h1>
+	<div class="flex items-center justify-between">
+		<h1 class="text-2xl font-bold text-gray-900">New Translation</h1>
+		<button
+			type="submit"
+			form="translation-form"
+			class="rounded-md bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700"
+		>
+			Create Translation
+		</button>
+	</div>
 
-	<form method="POST" use:enhance class="mt-6 space-y-6">
+	<form id="translation-form" method="POST" use:enhance class="mt-6 space-y-6">
 		{#if form?.error}
 			<div class="rounded-md bg-red-50 p-3 text-sm text-red-600">
 				{form.error}
