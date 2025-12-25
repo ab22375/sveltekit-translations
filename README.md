@@ -74,7 +74,7 @@ Examples:
 bun install
 
 # Create database
-psql -U ab -d postgres -c "CREATE DATABASE lang;"
+psql -U ab -d postgres -c "CREATE DATABASE translations;"
 
 # Push schema to database
 bun run db:push
@@ -99,7 +99,7 @@ bun run dev
 
 Create a `.env` file:
 ```
-DATABASE_URL=postgres://ab@localhost/lang
+DATABASE_URL=postgres://ab@localhost/translations
 ```
 
 Note: Uses Unix socket connection via `/tmp`.

@@ -4,7 +4,7 @@ import * as schema from './schema';
 
 const client = postgres({
 	host: '/tmp',
-	database: 'lang',
+	database: 'translations',
 	username: 'ab'
 });
 export const db = drizzle(client, { schema });

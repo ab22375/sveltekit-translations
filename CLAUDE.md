@@ -29,7 +29,7 @@ The database uses Unix socket connection at `/tmp`:
 ```typescript
 const client = postgres({
   host: '/tmp',
-  database: 'lang',
+  database: 'translations',
   username: 'ab'
 });
 ```
@@ -69,7 +69,7 @@ bun run db:push      # Sync schema to database
 
 ## Database
 
-PostgreSQL database named `lang`. Access via:
+PostgreSQL database named `translations`. Access via:
 ```bash
-psql -U ab -d lang
+psql -U ab -d translations
 ```
