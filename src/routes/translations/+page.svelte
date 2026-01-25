@@ -1,12 +1,18 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { marked } from 'marked';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 	let searchInput = $state('');
 	let showHelp = $state(false);
 	let debounceTimer: ReturnType<typeof setTimeout>;
+
+	function renderMarkdown(text: string | null): string {
+		if (!text) return '';
+		return marked.parse(text, { async: false }) as string;
+	}
 
 	$effect(() => {
 		searchInput = data.search;
@@ -43,10 +49,6 @@
 		return langNames[code] || code.toUpperCase();
 	}
 
-	function truncate(text: string, length: number = 100): string {
-		if (text.length <= length) return text;
-		return text.slice(0, length) + '...';
-	}
 </script>
 
 <svelte:head>
@@ -145,11 +147,17 @@
 								<span>→</span>
 								<span class="rounded bg-gray-100 px-2 py-0.5">{getLangName(translation.translationLang)}</span>
 							</div>
-							<p class="mt-2 font-medium text-gray-900">{truncate(translation.originalText)}</p>
+							<div class="prose prose-sm prose-gray mt-2 max-w-none">
+								{@html renderMarkdown(translation.originalText)}
+							</div>
 							{#if translation.originalReading}
-								<p class="mt-1 text-sm text-gray-500">{truncate(translation.originalReading, 50)}</p>
+								<div class="prose prose-sm prose-gray mt-1 max-w-none text-gray-500">
+									{@html renderMarkdown(translation.originalReading)}
+								</div>
 							{/if}
-							<p class="mt-2 text-gray-600">{truncate(translation.translationText)}</p>
+							<div class="prose prose-sm prose-gray mt-2 max-w-none text-gray-600">
+								{@html renderMarkdown(translation.translationText)}
+							</div>
 						</div>
 						<time class="text-xs text-gray-400">
 							{new Date(translation.createdAt).toLocaleDateString()}

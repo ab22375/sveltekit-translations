@@ -26,20 +26,12 @@
 			<p class="mt-4 text-gray-600">
 				Manage your translations and Japanese language study materials.
 			</p>
-			<div class="mt-6 space-x-4">
-				<a
-					href="/auth/register"
-					class="inline-block rounded-md bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
-				>
-					Get Started
-				</a>
-				<a
-					href="/auth/login"
-					class="inline-block rounded-md border border-gray-300 px-6 py-3 text-gray-700 hover:bg-gray-50"
-				>
-					Login
-				</a>
-			</div>
+			<a
+				href="/auth/login"
+				class="mt-6 inline-block rounded-md bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
+			>
+				Login
+			</a>
 		</div>
 	{/if}
 </div>
